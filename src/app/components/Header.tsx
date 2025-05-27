@@ -49,7 +49,7 @@ const Header: React.FC = () => {
 								<Link href="/services" className="group-hover:text-amber-500">
 									<ShoppingCart />
 								</Link>
-								<Link href="/services" className="hover:text-gray-500">
+								<Link href="/services" className=" hidden md:block hover:text-gray-500">
 									Cart
 								</Link>
 							</li>
