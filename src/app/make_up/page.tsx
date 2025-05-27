@@ -8,7 +8,7 @@ const MakeUp: React.FC = () => {
         Welcome to Lananz Beauty, your go-to destination for all things beauty! We are dedicated to providing you with the best beauty products and services to help you look and feel your best.
       </p>
       <p className="mb-4">
-        Our team of experts is passionate about beauty and is here to offer personalized advice and recommendations tailored to your unique needs. Whether you're looking for skincare, makeup, or haircare products, we've got you covered.
+        Our team of experts is passionate about beauty and is here to offer personalized advice and recommendations tailored to your unique needs. Whether you are looking for skincare, makeup, or haircare products, we have got you covered.
       </p>
       <p>
         Thank you for choosing Lananz Beauty. We look forward to serving you!

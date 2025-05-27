@@ -1,11 +1,10 @@
 'use client'; // optional, only if using hooks
 
-import { Cormorant_Garamond, Poppins, Tangerine } from 'next/font/google';
+import { Cormorant_Garamond, Tangerine } from 'next/font/google';
 import React from 'react';
 import Image from 'next/image';
 
 const cormorant = Cormorant_Garamond({ weight: '400', subsets: ['latin'] });
-const poppins = Poppins({ weight: ['400', '500'], subsets: ['latin'] });
 const tangerine = Tangerine({ weight: '400', subsets: ['latin'] });
 
 const Display: React.FC = () => {

@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { Cormorant_Garamond, Poppins } from 'next/font/google';
-import Image from 'next/image';
+import { Poppins } from 'next/font/google';
 
-const cormorant = Cormorant_Garamond({ weight: '400', subsets: ['latin'] });
+
 const poppins = Poppins({ weight: ['300', '400', '500'], subsets: ['latin'] });
 
 

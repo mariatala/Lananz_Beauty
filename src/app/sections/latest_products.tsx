@@ -2,12 +2,9 @@ import React from 'react';
 import { products } from '@/data/products';
 import ProductCard from '@/app/components/ProductCard';
 
-import { Cormorant_Garamond, Poppins, Tangerine } from 'next/font/google';
-import Image from 'next/image';
+import { Cormorant_Garamond} from 'next/font/google';
 
 const cormorant = Cormorant_Garamond({ weight: '400', subsets: ['latin'] });
-const poppins = Poppins({ weight: ['400', '500'], subsets: ['latin'] });
-const tangerine = Tangerine({ weight: '400', subsets: ['latin'] });
 
 const LatestProducts: React.FC = () => {
 	return (
