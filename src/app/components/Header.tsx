@@ -58,22 +58,22 @@ const Header: React.FC = () => {
 				</div>
 			</nav>
 
-			<nav className="sections_nav w-full h-10">
+			<nav className="sections_nav w-full h-8 md:h-10">
 				<ul className="flex justify-center bg-gray-100 w-full h-full">
-					<li className="flex-1 flex items-center justify-center h-full bg-[#F8EFE4] hover:bg-amber-400 border-r-2 border-black uppercase">
+					<li className="flex-1 flex items-center justify-center h-full  text-balance bg-[#F8EFE4] hover:bg-amber-400 border-r-1 md:border-r-2 border-black uppercase text-xs md:text-base">
 						<Link href="/make_up">Make Up</Link>
 					</li>
-					<li className="flex-1 flex items-center justify-center h-full bg-[#F8EFE4] hover:bg-amber-400 border-r-2 border-black uppercase">
+					<li className="flex-1 flex items-center justify-center h-full text-balance bg-[#F8EFE4] hover:bg-amber-400 border-r-1 md:border-r-2 border-black uppercase text-xs md:text-base">
 						<Link href="/hair_and_wigs">Hair and Wigs</Link>
 					</li>
-					<li className="flex-1 flex items-center justify-center h-full bg-[#F8EFE4] hover:bg-amber-400 uppercase">
+					<li className="flex-1 flex items-center justify-center h-full  bg-[#F8EFE4] hover:bg-amber-400 uppercase text-xs md:text-base">
 						<Link href="/products">Fashion</Link>
 					</li>
 				</ul>
 			</nav>
 
 			<nav className="section_nav flex justify-center w-full h-10">
-				<ul className="flex w-2/3 justify-between text-black h-full">
+				<ul className="flex w-full md:w-2/3 justify-between text-black h-full mx-4">
 					<li className="flex items-center h-full hover:text-amber-400">
 						<Link href="/make_up">Latest</Link>
 					</li>

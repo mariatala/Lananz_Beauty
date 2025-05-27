@@ -23,6 +23,9 @@ const ProductCard = ({
 				<Image
 					src={image}
 					alt={name}
+                    width={320}
+                    height={320}
+                    loading="lazy"
 					className="w-full h-72 object-cover rounded"
 				/>
 			</div>

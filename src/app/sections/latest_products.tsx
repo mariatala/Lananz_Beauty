@@ -9,7 +9,7 @@ const cormorant = Cormorant_Garamond({ weight: '400', subsets: ['latin'] });
 const LatestProducts: React.FC = () => {
 	return (
 		<div className="p-8">
-			<h1 className={`text-5xl font-bold mb-16 ${cormorant.className}`}>
+			<h1 className={`text-4xl lg:text-5xl  font-bold mb-8 ${cormorant.className}`}>
 				{' '}
 				Latest Products
 			</h1>
