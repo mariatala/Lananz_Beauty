@@ -1,3 +1,6 @@
+import Image from "next/image";
+import React from "react";
+
 type ProductProps = {
 	id: string;
 	name: string;
@@ -8,7 +11,6 @@ type ProductProps = {
 };
 
 const ProductCard = ({
-	id,
 	name,
 	description,
 	price,
@@ -18,7 +20,7 @@ const ProductCard = ({
 	return (
 		<div className="flex w-80 flex-col items-start bg-white rounded-xs shadow-md  hover:shadow-lg group hover:bg-gray-100 transition-shadow duration-300 cursor-pointer">
 			<div className="rounded-xs shadow-sm w-full p-2 bg-[#F8EFE4]">
-				<img
+				<Image
 					src={image}
 					alt={name}
 					className="w-full h-72 object-cover rounded"

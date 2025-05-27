@@ -2,9 +2,8 @@
 import './globals.css';
 import Footer from '@/app/components/Footer';
 import Header from '@/app/components/Header';
-import { Poppins } from 'next/font/google';
 
-const poppins = Poppins({ weight: ['400', '500'], subsets: ['latin'] });
+
 
 export default function RootLayout({
 	children,
@@ -13,7 +12,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="min-h-screen flex flex-col bg-gray-100 text-gray-900 ${poppins.className} tracking-wide">
+			<body className="min-h-screen flex flex-col bg-gray-100 text-gray-900  tracking-wide">
 				<Header />
 
 				{/* Main content area */}

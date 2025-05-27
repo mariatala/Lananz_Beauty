@@ -1,4 +1,7 @@
-import React from "react";
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
 
 const HairAndWigs: React.FC = () => {
   return (
@@ -8,13 +11,19 @@ const HairAndWigs: React.FC = () => {
         <nav>
           <ul className="flex space-x-4">
             <li>
-              <a href="/" className="hover:text-blue-500">Home</a>
+              <Link href="/" className="hover:text-blue-500">
+                Home
+              </Link>
             </li>
             <li>
-              <a href="/about" className="hover:text-blue-500">About</a>
+              <Link href="/about" className="hover:text-blue-500">
+                About
+              </Link>
             </li>
             <li>
-              <a href="/services" className="hover:text-blue-500">Services</a>
+              <Link href="/services" className="hover:text-blue-500">
+                Services
+              </Link>
             </li>
           </ul>
         </nav>
