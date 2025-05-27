@@ -74,22 +74,22 @@ const Header: React.FC = () => {
 
 			<nav className="section_nav flex justify-center w-full h-10">
 				<ul className="flex w-full md:w-2/3 justify-between text-black h-full mx-4">
-					<li className="flex items-center h-full hover:text-amber-400">
+					<li className="flex items-center text-xs md:text-base h-full hover:text-amber-400">
 						<Link href="/make_up">Latest</Link>
 					</li>
-					<li className="flex items-center h-full hover:text-amber-400">
+					<li className="flex items-center  text-xs md:text-base h-full hover:text-amber-400">
 						<Link href="/hair_and_wigs">Dresses</Link>
 					</li>
-					<li className="flex items-center h-full hover:text-amber-400">
+					<li className="flex items-center  text-xs md:text-base h-full hover:text-amber-400">
 						<Link href="/products">Tops</Link>
 					</li>
-					<li className="flex items-center h-full hover:text-amber-400">
+					<li className="flex items-center  text-xs md:text-base h-full hover:text-amber-400">
 						<Link href="/make_up">Bottoms</Link>
 					</li>
-					<li className="flex items-center h-full hover:text-amber-400">
+					<li className="flex items-center  text-xs md:text-base h-full hover:text-amber-400">
 						<Link href="/hair_and_wigs">Outwear</Link>
 					</li>
-					<li className="flex items-center h-full hover:text-amber-400">
+					<li className="flex items-center  text-xs md:text-base h-full hover:text-amber-400">
 						<Link href="/products">Reviews</Link>
 					</li>
 				</ul>
