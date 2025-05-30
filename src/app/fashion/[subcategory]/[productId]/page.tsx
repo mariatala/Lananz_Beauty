@@ -1,13 +1,9 @@
-'use client';
-
 import { fashionProducts } from '@/data/products';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import React, { useState } from 'react';
-import Link from 'next/link';
-import RelatedProducts from '@/app/components/RelatedProducts';
 import SubcategoryNav from '@/app/components/SubCategoryNav';
-import ProductActions from '@/app/components/ProductActions'; // optional if moved
+import RelatedProducts from '@/app/components/RelatedProducts';
+import ProductActions from '@/app/components/ProductActions'; // ✅ import your component
 
 interface ProductDetailPageProps {
   params: {
@@ -16,7 +12,7 @@ interface ProductDetailPageProps {
   };
 }
 
-const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
+export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const product = fashionProducts.find(
     (p) => p.id.toString() === params.productId
   );
@@ -31,7 +27,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
       <SubcategoryNav section="fashion" />
 
       <div className="w-4/5 mx-auto grid md:grid-cols-2 gap-32 items-start pt-8 mt-16">
-        {/* Image */}
+        {/* Product Image */}
         <div className="bg-[#F8EFE4] p-4 rounded-lg shadow w-full">
           <Image
             src={product.image}
@@ -50,29 +46,12 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
             ${product.price.toFixed(2)}
           </p>
 
-          {/* Optionally move this to ProductActions */}
-          <div>
-            <label className="block text-sm font-medium text-gray-600 mb-1">
-              Size
-            </label>
-            <div className="flex flex-wrap gap-3">
-              {sizes.map((size) => (
-                <button key={size} className="px-4 py-2 border rounded">
-                  {size}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <button className="mt-4 bg-amber-400 text-black font-medium px-6 py-3 rounded-sm hover:bg-amber-500 transition w-fit">
-            Add to Bag
-          </button>
+          {/* Product Actions Component (Client Side) */}
+          <ProductActions sizes={sizes} colors={colors} />
 
           {/* Delivery Info */}
           <div className="mt-8 border-t pt-6">
-            <h3 className="text-md font-semibold text-gray-700 mb-2">
-              Delivery Information
-            </h3>
+            <h3 className="text-md font-semibold text-gray-700 mb-2">Delivery Information</h3>
             <p className="text-sm text-gray-600">
               Enjoy fast and secure delivery within 3–5 business days.
             </p>
@@ -80,23 +59,19 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
 
           {/* Returns */}
           <div>
-            <h3 className="text-md font-semibold text-gray-700 mt-6 mb-2">
-              Returns & Exchanges
-            </h3>
+            <h3 className="text-md font-semibold text-gray-700 mt-6 mb-2">Returns & Exchanges</h3>
             <p className="text-sm text-gray-600">
               We offer free returns within 14 days. See our{' '}
-              <Link href="/policies/returns" className="underline hover:text-black">
+              <a href="/policies/returns" className="underline hover:text-black">
                 return policy
-              </Link>{' '}
+              </a>{' '}
               for more details.
             </p>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-md font-semibold text-gray-700 mt-6 mb-2">
-              Need Help?
-            </h3>
+            <h3 className="text-md font-semibold text-gray-700 mt-6 mb-2">Need Help?</h3>
             <p className="text-sm text-gray-600">
               Contact us at{' '}
               <a href="mailto:support@lananz.com" className="underline hover:text-black">
@@ -108,9 +83,11 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
         </div>
       </div>
 
-      <RelatedProducts category={product.category} currentProductId={product.id} />
+      {/* Related Products */}
+      <RelatedProducts
+        category={product.category}
+        currentProductId={product.id}
+      />
     </div>
   );
-};
-
-export default ProductDetailPage;
+}
