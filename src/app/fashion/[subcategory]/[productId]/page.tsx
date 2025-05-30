@@ -7,20 +7,23 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import RelatedProducts from '@/app/components/RelatedProducts';
-import { use } from 'react';
 import SubcategoryNav from '@/app/components/SubCategoryNav';
 
-export default function ProductDetailPage(props: {
-	params: Promise<{ productId: string }>;
+export default function ProductDetailPage({
+	params,
+}: {
+	params: { productId: string };
 }) {
-	const { productId } = use(props.params);
-	const product = fashionProducts.find((p) => p.id.toString() === productId);
+	const product = fashionProducts.find(
+		(p) => p.id.toString() === params.productId
+	);
 
-	if (!product) return notFound();
-
+	// ✅ move hooks BEFORE any condition
 	const [selectedSize, setSelectedSize] = useState<string>('M');
 	const [quantity, setQuantity] = useState<number>(1);
 	const [selectedColor, setSelectedColor] = useState<string>('Black');
+
+	if (!product) return notFound();
 
 	const sizes = ['S', 'M', 'L', 'XL'];
 	const colors = ['Black', 'Ivory', 'Gold'];
@@ -35,11 +38,10 @@ export default function ProductDetailPage(props: {
 			initial={{ opacity: 0, y: 40 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.6, ease: 'easeOut' }}
-			className="w-full mx-auto overflow-x-hidden "
+			className="w-full mx-auto overflow-x-hidden"
 		>
-			{' '}
 			<SubcategoryNav section="fashion" />
-			<div className=" w-4/5 mx-auto grid md:grid-cols-2 gap-32 items-start pt-8 mt-16">
+			<div className="w-4/5 mx-auto grid md:grid-cols-2 gap-32 items-start pt-8 mt-16">
 				{/* Image */}
 				<div className="bg-[#F8EFE4] p-4 rounded-lg shadow w-full">
 					<Image
@@ -175,7 +177,8 @@ export default function ProductDetailPage(props: {
 					</div>
 				</div>
 			</div>
-			{/* Related Products placed OUTSIDE the grid */}
+
+			{/* Related Products */}
 			<RelatedProducts
 				category={product.category}
 				currentProductId={product.id}

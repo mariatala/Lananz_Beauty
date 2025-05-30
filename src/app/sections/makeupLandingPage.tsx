@@ -50,7 +50,7 @@ const Section: React.FC = () => {
 					<h3 className="uppercase font-bold text-amber-400 tracking-wider">
 						Book an appointment with us:
 					</h3>
-					<p className="text-neutral-700 mt-12 leading-8 ${poppins.className}">
+					<p className={`text-neutral-700 mt-12 leading-8 ${poppins.className}`}>
 						Indulge in a personalized makeup session with our professional
 						artists. Whether it’s for a special event, a confidence boost, or
 						mastering your signature look — we’ll help you achieve a style
