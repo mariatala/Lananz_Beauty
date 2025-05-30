@@ -14,7 +14,12 @@ interface Props {
   };
 }
 
-export default function ProductDetailPage({ params }: Props) {
+type Params = {
+  productId: string;
+  subcategory: string;
+};
+
+export default function ProductDetailPage({ params }: { params: Params }) {
   const product = fashionProducts.find(
     (p) => p.id.toString() === params.productId
   );
