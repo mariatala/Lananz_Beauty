@@ -4,13 +4,8 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ShoppingCart } from 'lucide-react';
-import { Tangerine, MonteCarlo } from 'next/font/google';
+import {  MonteCarlo } from 'next/font/google';
 
-const tangerine = Tangerine({
-	subsets: ['latin'],
-	weight: ['400', '700'],
-	variable: '--geist-font',
-});
 const monteCarlo = MonteCarlo({
 	subsets: ['latin'],
 	weight: ['400'],

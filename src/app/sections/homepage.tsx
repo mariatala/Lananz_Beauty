@@ -2,12 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import {
-	Cormorant_Garamond,
-	Tangerine,
-	Poppins,
-	MonteCarlo,
-} from 'next/font/google';
+import { Cormorant_Garamond, Poppins, MonteCarlo } from 'next/font/google';
 const cormorant = Cormorant_Garamond({
 	weight: ['300', '400', '500'],
 	subsets: ['latin'],
@@ -63,10 +58,11 @@ const Home: React.FC = () => {
 			{/* What Makes Us Unique */}
 			<section className="bg-white py-20 px-6 text-center relative z-10">
 				<h2
-					className={`text-4xl  text-gray-900 font-bold mb-10 ${cormorant.className}`}
+					className={`text-4xl text-gray-900 font-bold mb-10 ${cormorant.className}`}
 				>
-					Why You'll Love the La Nanz Experience
+					Why You&#39;ll Love the La Nanz Experience
 				</h2>
+
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto my-10">
 					{[
 						{
@@ -148,7 +144,7 @@ const Home: React.FC = () => {
 						{
 							name: 'Linda A.',
 							quote:
-								'I’ve never felt so confident. The quality and service is unmatched.',
+								'I&rsquo;ve never felt so confident. The quality and service is unmatched.',
 						},
 						{
 							name: 'Diana K.',

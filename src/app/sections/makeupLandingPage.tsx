@@ -50,7 +50,7 @@ const Section: React.FC = () => {
 					<h3 className="uppercase font-bold text-amber-400 tracking-wider">
 						Book an appointment with us:
 					</h3>
-					<p className="text-neutral-700 mt-12 leading-8">
+					<p className="text-neutral-700 mt-12 leading-8 ${poppins.className}">
 						Indulge in a personalized makeup session with our professional
 						artists. Whether it’s for a special event, a confidence boost, or
 						mastering your signature look — we’ll help you achieve a style
@@ -151,7 +151,7 @@ const Section: React.FC = () => {
 									className="rounded-full object-cover"
 								/>
 								<p className="text-lg italic text-neutral-700 max-w-xl">
-									"{item.text}"
+									&ldquo;{item.text}&rdquo;
 								</p>
 							</div>
 						</SwiperSlide>

@@ -21,24 +21,22 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+	const [wishlisted, setWishlisted] = useState(false);
+
 	if (!product) {
 		console.warn('⚠️ ProductCard received undefined product');
 		return null; // or a fallback UI
 	}
 
 	const {
-		id,
 		name,
 		description,
 		price,
 		image,
 		category,
-		section,
 		isNew = false,
 		discount,
 	} = product;
-
-	const [wishlisted, setWishlisted] = useState(false);
 
 	const toggleWishlist = () => {
 		setWishlisted(!wishlisted);
