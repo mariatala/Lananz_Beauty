@@ -1,19 +1,34 @@
-import React from "react";  
+import React from 'react';
+import Display from '@/app/sections/display';
+import LatestProducts from '@/app/sections/latest_products';
+import SectionDividerOne from '@/app/sections/SectionDividerOne';
+import SubcategoryNav from '@/app/components/SubCategoryNav';
+import Link from 'next/link';
+import { Cormorant_Garamond, Poppins, Tangerine } from 'next/font/google';
+const cormorant = Cormorant_Garamond({ weight: '400', subsets: ['latin'] });
+const tangerine = Tangerine({ weight: '400', subsets: ['latin'] });
+const poppins = Poppins({ weight: '400', subsets: ['latin'] });
 
-const Tops: React.FC = () => { return (  
-    <div className="container mx-auto px-4 py-8">  
-      <h1 className="text-3xl font-bold mb-4">Accessories</h1>  
-      <p className="mb-4">  
-        Explore our exclusive collection of accessories that complement your style and enhance your look.  
-      </p>  
-      <p className="mb-4">  
-        From statement jewelry to chic handbags, we have everything you need to elevate your outfit.  
-      </p>  
-      <p>  
-        Discover the latest trends and timeless pieces that will add a touch of elegance to any ensemble.  
-      </p>  
-    </div>  
-  );  
-}
-export default Tops;
-// This code defines a simple React component for an Accessories page in a beauty e-commerce application.
+const Home: React.FC = () => {
+	return (
+		<div className="pb-10 max-w-screen mx-auto">
+			{/* Top navigation for fashion subcategories */}
+			<SubcategoryNav section="fashion" />
+			<Display
+				title="Fashion"
+				description="Discover handpicked fashion pieces designed to celebrate your individuality, confidence, and creativity. Something for every mood and moment."
+				buttonText="New Arrivals"
+				imageSrc="/fashion-2.jpg"
+			/>
+			<SectionDividerOne
+				heading="New season clothing, fresh accessories & the latest beauty launches."
+				subheading="Be one of the first to lay eyes on the handpicked, one-of-a-kind items that will breathe new life into your closet."
+				backgroundColor="bg-[#F8EFE4]" // beige
+			/>
+
+			<LatestProducts />
+		</div>
+	);
+};
+
+export default Home;

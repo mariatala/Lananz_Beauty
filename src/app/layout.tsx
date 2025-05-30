@@ -1,9 +1,7 @@
 // These styles apply to every route in the application
 import './globals.css';
-import Footer from '@/app/components/Footer';
 import Header from '@/app/components/Header';
-
-
+import Footer from '@/app/sections/footer';
 
 export default function RootLayout({
 	children,
@@ -17,7 +15,7 @@ export default function RootLayout({
 
 				{/* Main content area */}
 				<main className="flex-1">{children}</main>
-
+				{/* Footer and sub-footer */}
 				<Footer />
 			</body>
 		</html>

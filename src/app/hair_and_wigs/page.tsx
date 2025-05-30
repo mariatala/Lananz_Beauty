@@ -1,35 +1,34 @@
-'use client';
-
 import React from 'react';
+import Display from '@/app/sections/display';
+import LatestProducts from '@/app/sections/latest_products';
+import SectionDividerOne from '@/app/sections/SectionDividerOne';
+import SubcategoryNav from '@/app/components/SubCategoryNav';
 import Link from 'next/link';
+import { Cormorant_Garamond, Poppins, Tangerine } from 'next/font/google';
+const cormorant = Cormorant_Garamond({ weight: '400', subsets: ['latin'] });
+const tangerine = Tangerine({ weight: '400', subsets: ['latin'] });
+const poppins = Poppins({ weight: '400', subsets: ['latin'] });
 
-const HairAndWigs: React.FC = () => {
-  return (
-    <header className="bg-amber-400 border-b-2 border-black text-black py-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Lananz Beauty</h1>
-        <nav>
-          <ul className="flex space-x-4">
-            <li>
-              <Link href="/" className="hover:text-blue-500">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-blue-500">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/services" className="hover:text-blue-500">
-                Services
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-  );
+const Home: React.FC = () => {
+	return (
+		<div className="pb-10 max-w-screen mx-auto">
+			{/* Top navigation for fashion subcategories */}
+			<SubcategoryNav section="hair_and_wigs" />
+			<Display
+				title="Hair & Wigs"
+				description="Turn heads with premium wigs and hair essentials that define your style and confidence. Natural, sleek, or bold — your crown, your way."
+				buttonText="Explore Hair"
+				imageSrc="/hair-6.jpg"
+			/>
+			<SectionDividerOne
+				heading="Your hair, your story — redefine your crown."
+				subheading="From lace fronts to natural textures, find the pieces that let you express your identity, effortlessly."
+				backgroundColor="bg-[#EAF4F4]" // soft mint
+			/>
+
+			<LatestProducts />
+		</div>
+	);
 };
 
-export default HairAndWigs;
+export default Home;
