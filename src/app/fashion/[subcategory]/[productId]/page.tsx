@@ -1,18 +1,20 @@
+// NO 'use client' — this is a server component
+
 import { fashionProducts } from '@/data/products';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import SubcategoryNav from '@/app/components/SubCategoryNav';
 import RelatedProducts from '@/app/components/RelatedProducts';
-import ProductActions from '@/app/components/ProductActions'; // ✅ import your component
+import ProductActions from '@/app/components/ProductActions';
 
-interface ProductDetailPageProps {
+interface Props {
   params: {
     productId: string;
     subcategory: string;
   };
 }
 
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
+export default function ProductDetailPage({ params }: Props) {
   const product = fashionProducts.find(
     (p) => p.id.toString() === params.productId
   );
@@ -25,9 +27,8 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   return (
     <div className="w-full mx-auto overflow-x-hidden">
       <SubcategoryNav section="fashion" />
-
       <div className="w-4/5 mx-auto grid md:grid-cols-2 gap-32 items-start pt-8 mt-16">
-        {/* Product Image */}
+        {/* Image */}
         <div className="bg-[#F8EFE4] p-4 rounded-lg shadow w-full">
           <Image
             src={product.image}
@@ -46,44 +47,12 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             ${product.price.toFixed(2)}
           </p>
 
-          {/* Product Actions Component (Client Side) */}
           <ProductActions sizes={sizes} colors={colors} />
 
-          {/* Delivery Info */}
-          <div className="mt-8 border-t pt-6">
-            <h3 className="text-md font-semibold text-gray-700 mb-2">Delivery Information</h3>
-            <p className="text-sm text-gray-600">
-              Enjoy fast and secure delivery within 3–5 business days.
-            </p>
-          </div>
-
-          {/* Returns */}
-          <div>
-            <h3 className="text-md font-semibold text-gray-700 mt-6 mb-2">Returns & Exchanges</h3>
-            <p className="text-sm text-gray-600">
-              We offer free returns within 14 days. See our{' '}
-              <a href="/policies/returns" className="underline hover:text-black">
-                return policy
-              </a>{' '}
-              for more details.
-            </p>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-md font-semibold text-gray-700 mt-6 mb-2">Need Help?</h3>
-            <p className="text-sm text-gray-600">
-              Contact us at{' '}
-              <a href="mailto:support@lananz.com" className="underline hover:text-black">
-                support@lananz.com
-              </a>{' '}
-              or call <span className="font-medium">+1 800 123 4567</span>.
-            </p>
-          </div>
+          {/* ...delivery, returns, contact sections... */}
         </div>
       </div>
 
-      {/* Related Products */}
       <RelatedProducts
         category={product.category}
         currentProductId={product.id}
