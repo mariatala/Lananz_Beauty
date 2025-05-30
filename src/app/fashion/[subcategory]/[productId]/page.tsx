@@ -1,45 +1,44 @@
-
+'use client';
 
 import { fashionProducts } from '@/data/products';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import RelatedProducts from '@/app/components/RelatedProducts';
 import SubcategoryNav from '@/app/components/SubCategoryNav';
+import ProductActions from '@/app/components/ProductActions';
 
-export default function ProductDetailPage({
-	params,
-}: {
-	params: { productId: string; subcategory: string };
-}) {
+// 🧠 Dynamically import with ssr disabled
+const AnimatedWrapper = dynamic(
+	() => import('@/app/components/AnimatedWrapper'),
+	{
+		ssr: false,
+	}
+);
+
+interface ProductDetailPageProps {
+	params: {
+		productId: string;
+		subcategory: string;
+	};
+}
+
+const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
 	const product = fashionProducts.find(
 		(p) => p.id.toString() === params.productId
 	);
-
-	const [selectedSize, setSelectedSize] = useState<string>('M');
-	const [quantity, setQuantity] = useState<number>(1);
-	const [selectedColor, setSelectedColor] = useState<string>('Black');
 
 	if (!product) return notFound();
 
 	const sizes = ['S', 'M', 'L', 'XL'];
 	const colors = ['Black', 'Ivory', 'Gold'];
 
-	const handleQuantity = (type: 'inc' | 'dec') => {
-		if (type === 'dec' && quantity > 1) setQuantity((q) => q - 1);
-		if (type === 'inc') setQuantity((q) => q + 1);
-	};
-
 	return (
-		<motion.div
-			initial={{ opacity: 0, y: 40 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.6, ease: 'easeOut' }}
-			className="w-full mx-auto overflow-x-hidden"
-		>
+		<AnimatedWrapper>
 			<SubcategoryNav section="fashion" />
+
 			<div className="w-4/5 mx-auto grid md:grid-cols-2 gap-32 items-start pt-8 mt-16">
 				{/* Image */}
 				<div className="bg-[#F8EFE4] p-4 rounded-lg shadow w-full">
@@ -60,76 +59,7 @@ export default function ProductDetailPage({
 						${product.price.toFixed(2)}
 					</p>
 
-					{/* Sizes */}
-					<div>
-						<label className="block text-sm font-medium text-gray-600 mb-1">
-							Size
-						</label>
-						<div className="flex flex-wrap gap-3">
-							{sizes.map((size) => (
-								<button
-									key={size}
-									onClick={() => setSelectedSize(size)}
-									className={`px-4 py-2 border rounded ${
-										selectedSize === size
-											? 'bg-amber-400 text-black border-amber-500'
-											: 'border-gray-300 text-gray-600'
-									} transition`}
-								>
-									{size}
-								</button>
-							))}
-						</div>
-					</div>
-
-					{/* Colors */}
-					<div>
-						<label className="block text-sm font-medium text-gray-600 mb-1">
-							Color
-						</label>
-						<div className="flex flex-wrap gap-3">
-							{colors.map((color) => (
-								<button
-									key={color}
-									onClick={() => setSelectedColor(color)}
-									className={`px-4 py-2 border rounded ${
-										selectedColor === color
-											? 'bg-amber-400 text-black border-amber-500'
-											: 'border-gray-300 text-gray-600'
-									} transition`}
-								>
-									{color}
-								</button>
-							))}
-						</div>
-					</div>
-
-					{/* Quantity */}
-					<div>
-						<label className="block text-sm font-medium text-gray-600 mb-1">
-							Quantity
-						</label>
-						<div className="flex items-center gap-4">
-							<button
-								onClick={() => handleQuantity('dec')}
-								className="w-8 h-8 text-xl bg-gray-100 hover:bg-gray-200 transition rounded"
-							>
-								-
-							</button>
-							<span className="text-lg">{quantity}</span>
-							<button
-								onClick={() => handleQuantity('inc')}
-								className="w-8 h-8 text-xl bg-gray-100 hover:bg-gray-200 transition rounded"
-							>
-								+
-							</button>
-						</div>
-					</div>
-
-					{/* Add to Bag */}
-					<button className="mt-4 bg-amber-400 text-black font-medium px-6 py-3 rounded-sm hover:bg-amber-500 transition w-fit">
-						Add to Bag
-					</button>
+					<ProductActions sizes={sizes} colors={colors} />
 
 					{/* Delivery Info */}
 					<div className="mt-8 border-t pt-6">
@@ -177,11 +107,12 @@ export default function ProductDetailPage({
 				</div>
 			</div>
 
-			{/* Related Products */}
 			<RelatedProducts
 				category={product.category}
 				currentProductId={product.id}
 			/>
-		</motion.div>
+		</AnimatedWrapper>
 	);
-}
+};
+
+export default ProductDetailPage;
