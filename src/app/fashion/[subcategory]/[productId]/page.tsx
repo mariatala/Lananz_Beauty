@@ -1,4 +1,4 @@
-'use client';
+
 
 import { fashionProducts } from '@/data/products';
 import { notFound } from 'next/navigation';
