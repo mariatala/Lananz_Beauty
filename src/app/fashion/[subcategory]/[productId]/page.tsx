@@ -1,5 +1,3 @@
-// src/app/fashion/[subcategory]/[productId]/page.tsx
-
 import { fashionProducts } from '@/data/products';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -8,15 +6,12 @@ import RelatedProducts from '@/app/components/RelatedProducts';
 import SubcategoryNav from '@/app/components/SubCategoryNav';
 import ProductActions from '@/app/components/ProductActions';
 
-interface PageProps {
-	params: {
-		subcategory: string;
-		productId: string;
-	};
-}
-
-// ✅ MARK AS ASYNC
-export default async function ProductDetailPage({ params }: PageProps) {
+// ✅ Use Next.js expected structure for dynamic routes
+export default async function ProductDetailPage({
+	params,
+}: {
+	params: { subcategory: string; productId: string };
+}) {
 	const product = fashionProducts.find(
 		(p) => p.id.toString() === params.productId
 	);
