@@ -4,7 +4,6 @@ import ClientFashionPage from '@/app/components/FashionSubcategoryPageClient';
 interface Props {
 	params: {
 		subcategory: string;
-		productId: string;
 	};
 }
 
