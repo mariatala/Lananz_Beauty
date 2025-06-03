@@ -10,7 +10,6 @@ import ProductActions from '@/app/components/ProductActions';
 
 interface ProductPageParams {
 	params: {
-		subcategory: string;
 		productId: string;
 	};
 }
