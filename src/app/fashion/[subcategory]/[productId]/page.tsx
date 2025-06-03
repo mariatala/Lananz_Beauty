@@ -1,4 +1,5 @@
-// ✅ Tell Next.js to support dynamic params without static generation
+// src/app/fashion/[subcategory]/[productId]/page.tsx
+
 export const dynamicParams = true;
 
 import { fashionProducts } from '@/data/products';
@@ -9,17 +10,13 @@ import RelatedProducts from '@/app/components/RelatedProducts';
 import SubcategoryNav from '@/app/components/SubCategoryNav';
 import ProductActions from '@/app/components/ProductActions';
 
-interface ProductPageComponentProps {
-	params: {
-		subcategory: string;
-		productId: string;
-	};
-}
+export default async function ProductDetailPage(
+	props: Promise<{ params: { subcategory: string; productId: string } }>
+) {
+	const { params } = await props;
+	const { subcategory, productId } = params;
 
-export default async function ProductDetailPage({ params }: ProductPageComponentProps) {
-	const product = fashionProducts.find(
-		(p) => p.id.toString() === params.productId
-	);
+	const product = fashionProducts.find((p) => p.id.toString() === productId);
 
 	if (!product) return notFound();
 
