@@ -8,13 +8,6 @@ import RelatedProducts from '@/app/components/RelatedProducts';
 import SubcategoryNav from '@/app/components/SubCategoryNav';
 import ProductActions from '@/app/components/ProductActions';
 
-interface PageProps {
-	params: {
-		subcategory: string;
-		productId: string;
-	};
-}
-
 // ✅ MARK AS ASYNC
 export default async function ProductDetailPage({
 	params,
