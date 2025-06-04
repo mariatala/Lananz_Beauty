@@ -11,16 +11,12 @@ interface ProductDetailPageProps {
 		subcategory: string;
 		productId: string;
 	};
-	// You can also include searchParams if needed:
-	// searchParams: { [key: string]: string | string[] | undefined };
 }
 
-// The Page component is an async function that receives props directly
-export default async function ProductDetailPage(props: ProductDetailPageProps) {
-	// Destructure params directly from props
-	const { params } = props;
-	const { subcategory, productId } = params;
-
+export default async function ProductDetailPage({
+	params,
+}: ProductDetailPageProps) {
+	
 	const product = fashionProducts.find(
 		(p) => p.id.toString() === params.productId
 	);
