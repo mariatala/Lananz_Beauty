@@ -6,11 +6,8 @@ export const categories = {
 	hair_and_wigs: [
 		'Human Hair',
 		'Synthetic Hair',
-		'Capless',
 		'Lace Front',
 		'Full Lace',
-		'Basic Cap',
 		'Non-Slip',
-		'Hairpieces',
 	],
 };

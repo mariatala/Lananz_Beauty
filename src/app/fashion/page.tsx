@@ -13,6 +13,7 @@ const Home: React.FC = () => {
 				title="Fashion"
 				description="Discover handpicked fashion pieces designed to celebrate your individuality, confidence, and creativity. Something for every mood and moment."
 				buttonText="New Arrivals"
+				buttonLink="#"
 				imageSrc="/fashion-2.jpg"
 			/>
 			<SectionDividerOne

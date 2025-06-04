@@ -3,7 +3,7 @@ import Display from '@/app/sections/display';
 import SectionDividerOne from '@/app/sections/SectionDividerOne';
 import SubcategoryNav from '@/app/components/SubCategoryNav';
 import MakeUpLandingPage from '@/app/sections/makeupLandingPage';
-
+import Link from 'next/link';
 
 const Home: React.FC = () => {
 	return (
@@ -14,6 +14,7 @@ const Home: React.FC = () => {
 			<Display
 				title="Makeup"
 				description="Glow up with high-quality, luxurious makeup essentials tailored for every skin tone. Your beauty, your rules."
+				buttonLink="#appointment-form"
 				buttonText="Book an appointment"
 				imageSrc="/makeup-14.jpg"
 			/>

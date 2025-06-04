@@ -3,6 +3,7 @@
 import { Cormorant_Garamond, Poppins, MonteCarlo } from 'next/font/google';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const cormorant = Cormorant_Garamond({
 	weight: ['400', '500', '600', '700'],
@@ -14,6 +15,7 @@ const poppins = Poppins({ weight: '400', subsets: ['latin'] });
 type DisplayProps = {
 	title: string;
 	description: string;
+	buttonLink: string; // ✅ new prop
 	buttonText: string;
 	imageSrc: string;
 };
@@ -21,6 +23,7 @@ type DisplayProps = {
 const Display: React.FC<DisplayProps> = ({
 	title,
 	description,
+	buttonLink,
 	buttonText,
 	imageSrc,
 }) => {
@@ -30,7 +33,7 @@ const Display: React.FC<DisplayProps> = ({
 				{/* Left Side */}
 				<div className="intro flex flex-col space-y-6 w-full md:w-1/2 lg:w-1/3 text-left">
 					<h2
-						className={`${cormorant.className} [word-spacing:0.1rem] mb-8 text-3xl text-black  md:text-4xl lg:text-4xl font-bold tracking-tight`}
+						className={`${cormorant.className} [word-spacing:0.1rem] mb-4 md:mb-8 text-3xl text-black  md:text-4xl lg:text-4xl font-bold tracking-tight`}
 					>
 						The{' '}
 						<span
@@ -46,9 +49,11 @@ const Display: React.FC<DisplayProps> = ({
 					>
 						{description}
 					</h2>
+					<Link href={buttonLink}>
 					<button className="px-6 py-2 md:mt-10 w-full md:w-fit bg-amber-400 text-white rounded-xs shadow hover:bg-neutral-950 transition uppercase tracking-wider">
 						{buttonText}
 					</button>
+					</Link>
 				</div>
 
 				{/* Right Side */}

@@ -14,6 +14,7 @@ const Home: React.FC = () => {
 				title="Hair & Wigs"
 				description="Turn heads with premium wigs and hair essentials that define your style and confidence. Natural, sleek, or bold — your crown, your way."
 				buttonText="Explore Hair"
+				buttonLink="#"
 				imageSrc="/hair-6.jpg"
 			/>
 			<SectionDividerOne

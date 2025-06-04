@@ -60,7 +60,7 @@ const Section: React.FC = () => {
 						let the transformation begin.
 					</p>
 				</div>
-				<form className=" flex flex-col gap-6 bg-white rounded p-6 shadow-md w-full max-w-lg">
+				<form id="appointment-form" className=" flex flex-col gap-6 bg-white rounded p-6 shadow-md w-full max-w-lg">
 					<div className="mb-4">
 						<label className="block text-sm font-medium text-neutral-700 mb-2 uppercase">
 							Full Name
