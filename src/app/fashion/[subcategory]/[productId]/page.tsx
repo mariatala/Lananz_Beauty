@@ -13,10 +13,7 @@ interface ProductDetailPageProps {
 	};
 }
 
-export default async function ProductDetailPage({
-	params,
-}: ProductDetailPageProps) {
-	
+export default function ProductDetailPage({ params }: ProductDetailPageProps) {
 	const product = fashionProducts.find(
 		(p) => p.id.toString() === params.productId
 	);
