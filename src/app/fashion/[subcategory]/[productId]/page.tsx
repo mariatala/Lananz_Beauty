@@ -2,12 +2,12 @@
 import ProductDetails from '@/app/components/ProductDetails';
 
 interface PageProps {
-	params: {
+	params: Promise<{
 		subcategory: string;
 		productId: string;
-	};
+	}>;
 }
 
-export default function Page({ params }: PageProps) {
-	return <ProductDetails params={params} />;
+export default async function Page({ params }: PageProps) {
+	return <ProductDetails params={await params} />;
 }
