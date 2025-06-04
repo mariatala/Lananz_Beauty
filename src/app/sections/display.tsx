@@ -28,9 +28,9 @@ const Display: React.FC<DisplayProps> = ({
 		<section className="w-full min-h-[70vh] flex items-center justify-center px-4 py-16 bg-gradient-to-b from-neutral-100 to-neutral-50">
 			<div className="container w-full mx-auto  lg:mx-16 flex flex-col-reverse md:flex-row md:items-start lg:items-center justify-evenly gap-10">
 				{/* Left Side */}
-				<div className="intro flex flex-col space-y-6 w-full md:w-1/2 lg:w-1/3 text-justify md:text-left">
+				<div className="intro flex flex-col space-y-6 w-full md:w-1/2 lg:w-1/3 text-left">
 					<h2
-						className={`${cormorant.className} [word-spacing:0.1rem] mb-8 text-3xl text-black  md:text-4xl lg:text-4xl font-bold`}
+						className={`${cormorant.className} [word-spacing:0.1rem] mb-8 text-3xl text-black  md:text-4xl lg:text-4xl font-bold tracking-tight`}
 					>
 						The{' '}
 						<span
@@ -42,7 +42,7 @@ const Display: React.FC<DisplayProps> = ({
 						Edition at La Nanz Beautie World
 					</h2>
 					<h2
-						className={`${poppins.className} leading-10 tracking-wider text-neutral-700`}
+						className={`${poppins.className} leading-8 tracking-wider text-neutral-700`}
 					>
 						{description}
 					</h2>

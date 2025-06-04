@@ -26,22 +26,22 @@ import { Pagination } from 'swiper/modules';
 
 const Section: React.FC = () => {
 	return (
-		<section className="w-full flex flex-col gap-24 py-20 px-16 bg-gradient-to-br from-white to-neutral-200">
+		<section className="w-full flex flex-col gap-24 py-10 md:py-20 px-4 md:px-16 bg-gradient-to-br from-white to-neutral-200">
 			{/* Video Gallery */}
 			<div className="w-full  mx-auto">
-				<div className="flex flex-col items-center justify-center mb-16">
+				<div className="flex flex-col items-center justify-center mb-8 md:mb-16">
 					<h3
-						className={`[word-spacing:1.5rem] text-3xl md:text-6xl  text-center mb-4 ${monteCarlo.className}`}
+						className={`[word-spacing:0.5rem] text-3xl md:text-6xl  text-center mb-4 ${monteCarlo.className}`}
 					>
-						Beauty in Motion
+						Beauty In Motion
 					</h3>
 					<div className="w-24 h-1 bg-amber-400 mb-4 rounded-lg"></div>
 				</div>
 				<VideoGallery />
 			</div>
 			{/* Book Appointment with Form */}
-			<div className="w-full bg-[#F8EFE4] py-16 px-6 flex flex-col md:flex-row items-start justify-evenly gap-10">
-				<div className="text-center md:text-left max-w-lg mt-4">
+			<div className="w-full bg-[#F8EFE4] py-16 px-2 md:px-6 flex flex-col justify-center items-center md:flex-row md:items-start md:justify-evenly gap-10">
+				<div className="text-center md:text-left max-w-xl mt-4">
 					<h2
 						className={`text-2xl md:text-5xl font-semibold mb-2 ${cormorantGaramond.className}`}
 					>
@@ -50,7 +50,9 @@ const Section: React.FC = () => {
 					<h3 className="uppercase font-bold text-amber-400 tracking-wider">
 						Book an appointment with us:
 					</h3>
-					<p className={`text-neutral-700 mt-12 leading-8 ${poppins.className}`}>
+					<p
+						className={`text-neutral-700 mt-12 leading-8 ${poppins.className}`}
+					>
 						Indulge in a personalized makeup session with our professional
 						artists. Whether it’s for a special event, a confidence boost, or
 						mastering your signature look — we’ll help you achieve a style
@@ -58,7 +60,7 @@ const Section: React.FC = () => {
 						let the transformation begin.
 					</p>
 				</div>
-				<form className=" flex flex-col gap-6 bg-white rounded p-6 shadow-md w-full max-w-md">
+				<form className=" flex flex-col gap-6 bg-white rounded p-6 shadow-md w-full max-w-lg">
 					<div className="mb-4">
 						<label className="block text-sm font-medium text-neutral-700 mb-2 uppercase">
 							Full Name
@@ -113,7 +115,7 @@ const Section: React.FC = () => {
 			{/* Testimonials Carousel */}
 			<div className="w-full max-w-5xl mx-auto">
 				<h2
-					className={`[word-spacing:1.5rem] text-3xl md:text-6xl  text-center mb-12 ${monteCarlo.className}`}
+					className={`[word-spacing:0.5rem] text-3xl md:text-6xl  text-center mb-12 ${monteCarlo.className}`}
 				>
 					Radiant Reviews
 				</h2>
@@ -121,7 +123,7 @@ const Section: React.FC = () => {
 					slidesPerView={1}
 					pagination={{ clickable: true }}
 					modules={[Pagination]}
-					className="testimonial-swiper fl"
+					className=" w-full testimonial-swiper fl"
 				>
 					{[
 						{
