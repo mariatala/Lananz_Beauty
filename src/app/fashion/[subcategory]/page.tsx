@@ -2,11 +2,12 @@
 import ClientFashionPage from '@/app/components/FashionSubcategoryPageClient';
 
 interface Props {
-	params: {
+	params: Promise<{
 		subcategory: string;
-	};
+	}>;
 }
 
-export default function FashionSubcategoryServerPage({ params }: Props) {
-	return <ClientFashionPage subcategory={params.subcategory} />;
+export default async function FashionSubcategoryServerPage({ params }: Props) {
+	
+	return <ClientFashionPage subcategory={(await params).subcategory} />;
 }
